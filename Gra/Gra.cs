@@ -21,6 +21,10 @@ namespace Gra
         public Gra()
         {
             InitializeComponent();
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+            player.SoundLocation = "";
+            player.Play();
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -53,5 +57,7 @@ namespace Gra
             this.Refresh();
 
         }
+        
+        
     }
 }

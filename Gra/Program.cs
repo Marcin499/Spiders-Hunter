@@ -16,7 +16,7 @@ namespace Gra
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Gra());
+            Application.Run(new Menu());
         }
     }
 }
