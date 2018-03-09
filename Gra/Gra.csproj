@@ -80,6 +80,14 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pajak.cs" />
+    <Compile Include="Podstawa.cs" />
+    <Compile Include="Poziomy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Poziomy.Designer.cs">
+      <DependentUpon>Poziomy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Gra.resx">
@@ -87,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Poziomy.resx">
+      <DependentUpon>Poziomy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icons8-Windows-8-Cinema-Spiderman-New.ico" />
+    <None Include="Resources\spider2.png" />
     <None Include="Resources\Granite.wav" />
     <None Include="Resources\room.jpg" />
   </ItemGroup>

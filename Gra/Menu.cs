@@ -52,7 +52,7 @@ namespace Gra
         }
         public void opennewform (object obj)
         {
-            Application.Run(new Gra());
+            Application.Run(new Poziomy());
 
         }
     }
