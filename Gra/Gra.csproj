@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Boom.cs" />
     <Compile Include="Gra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +82,7 @@
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Pajak.cs" />
+    <Compile Include="PodMenu.cs" />
     <Compile Include="Podstawa.cs" />
     <Compile Include="Poziomy.cs">
       <SubType>Form</SubType>
@@ -90,6 +92,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tablica.cs" />
     <EmbeddedResource Include="Gra.resx">
       <DependentUpon>Gra.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +127,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icons8-Windows-8-Cinema-Spiderman-New.ico" />
+    <None Include="Resources\Krzyk.wav" />
+    <None Include="Resources\board.jpg" />
+    <None Include="Resources\boom2.png" />
+    <None Include="Resources\tablica2.png" />
     <None Include="Resources\spider2.png" />
     <None Include="Resources\Granite.wav" />
     <None Include="Resources\room.jpg" />

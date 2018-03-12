@@ -61,11 +61,40 @@ namespace Gra.Properties {
         }
         
         /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap board {
+            get {
+                object obj = ResourceManager.GetObject("board", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap boom2 {
+            get {
+                object obj = ResourceManager.GetObject("boom2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.IO.UnmanagedMemoryStream podobny do zasobu System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream Granite {
             get {
                 return ResourceManager.GetStream("Granite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.IO.UnmanagedMemoryStream podobny do zasobu System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Krzyk {
+            get {
+                return ResourceManager.GetStream("Krzyk", resourceCulture);
             }
         }
         
@@ -85,6 +114,16 @@ namespace Gra.Properties {
         internal static System.Drawing.Bitmap spider2 {
             get {
                 object obj = ResourceManager.GetObject("spider2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tablica2 {
+            get {
+                object obj = ResourceManager.GetObject("tablica2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

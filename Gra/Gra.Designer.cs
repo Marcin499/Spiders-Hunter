@@ -48,6 +48,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Spiders Hunter";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Gra_MouseClick);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Gra_MouseMove);
             this.ResumeLayout(false);
 

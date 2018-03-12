@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Gra
 {
@@ -19,6 +20,9 @@ namespace Gra
         int cursY = 0;
 #endif
         Pajak spider;
+        PodMenu podmenu;
+        Boom boom;
+        Tablica tablica;
         
         public Gra()
         {
@@ -27,7 +31,10 @@ namespace Gra
             player.SoundLocation = "";
             player.Play();
             spider = new Pajak() { Left = 10, Top = 200 };
-            
+            podmenu = new PodMenu() { Left = 900, Top = 0 };
+            tablica = new Tablica() { Left = 10, Top = 10 };
+            boom = new Boom(); 
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -44,6 +51,9 @@ namespace Gra
         {
             Graphics gp = e.Graphics;
             spider.DrawImage(gp);
+            podmenu.DrawImage(gp);
+            tablica.DrawImage(gp);
+
             
 #if Debug
             TextFormatFlags flags = TextFormatFlags.HorizontalCenter | TextFormatFlags.EndEllipsis;
@@ -62,7 +72,27 @@ namespace Gra
             this.Refresh();
 
         }
-        
-        
+
+        private void Gra_MouseClick(object sender, MouseEventArgs e)
+        {
+            System.Media.SoundPlayer krzyk = new System.Media.SoundPlayer();
+            krzyk.SoundLocation = "Krzyk.wav";
+            krzyk.Play();
+
+            if (e.X > 923 && e.X < 1182 && e.Y > 93 && e.Y < 140)
+            {
+                timer1.Start();
+            }
+            else if (e.X > 923 && e.X < 1182 && e.Y > 140 && e.Y < 194)
+            {
+                timer1.Stop();
+            }
+            else if (e.X > 923 && e.X < 1182 && e.Y > 194 && e.Y < 249)
+            {
+
+            }
+        }
+
     }
+    
 }
