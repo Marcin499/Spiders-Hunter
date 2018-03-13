@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icons8-Windows-8-Cinema-Spiderman-New.ico" />
+    <None Include="Resources\Got ya bitch.wav" />
     <None Include="Resources\Krzyk.wav" />
     <None Include="Resources\board.jpg" />
     <None Include="Resources\boom2.png" />

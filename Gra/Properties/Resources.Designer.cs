@@ -83,6 +83,15 @@ namespace Gra.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.IO.UnmanagedMemoryStream podobny do zasobu System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Got_ya_bitch {
+            get {
+                return ResourceManager.GetStream("Got_ya_bitch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.IO.UnmanagedMemoryStream podobny do zasobu System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream Granite {
             get {
                 return ResourceManager.GetStream("Granite", resourceCulture);

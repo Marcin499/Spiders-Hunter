@@ -18,8 +18,8 @@ namespace Gra
         {
             SpiderHotSpot.X = Left + 20;
             SpiderHotSpot.Y = Top - 1;
-            SpiderHotSpot.Width = 30;
-            SpiderHotSpot.Height = 40;
+            SpiderHotSpot.Width = 80;
+            SpiderHotSpot.Height = 100;
         }
         
 
