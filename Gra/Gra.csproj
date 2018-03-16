@@ -81,6 +81,12 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Opis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Opis.Designer.cs">
+      <DependentUpon>Opis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pajak.cs" />
     <Compile Include="PodMenu.cs" />
     <Compile Include="Podstawa.cs" />
@@ -105,11 +111,32 @@
     <Compile Include="Trudny.Designer.cs">
       <DependentUpon>Trudny.cs</DependentUpon>
     </Compile>
+    <Compile Include="Wynik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wynik.Designer.cs">
+      <DependentUpon>Wynik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WynikPoziomSredni.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WynikPoziomSredni.Designer.cs">
+      <DependentUpon>WynikPoziomSredni.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WynikPoziomTrudny.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WynikPoziomTrudny.Designer.cs">
+      <DependentUpon>WynikPoziomTrudny.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Gra.resx">
       <DependentUpon>Gra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Opis.resx">
+      <DependentUpon>Opis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Poziomy.resx">
       <DependentUpon>Poziomy.cs</DependentUpon>
@@ -129,6 +156,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Trudny.resx">
       <DependentUpon>Trudny.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wynik.resx">
+      <DependentUpon>Wynik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WynikPoziomSredni.resx">
+      <DependentUpon>WynikPoziomSredni.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WynikPoziomTrudny.resx">
+      <DependentUpon>WynikPoziomTrudny.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

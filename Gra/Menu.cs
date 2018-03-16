@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.IO;
 
 namespace Gra
 {
@@ -55,5 +56,26 @@ namespace Gra
             Application.Run(new Poziomy());
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Opis op = new Opis();
+            op.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string location = @"C:\Users\Marcin\Documents\Visual Studio 2017\Projects\Gra\Gra\bin\Debug\wynik.txt";
+                File.Open(location, FileMode.Open);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Błąd", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
     }
-}
+    }
+

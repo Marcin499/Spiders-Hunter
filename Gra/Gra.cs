@@ -25,8 +25,10 @@ namespace Gra
         int uderzeniachybione = 0;
         int wszystkieuderzenia = 0;
         int poziomstrachu = 0;
-        double liczbapunktow = 0;
+        int liczbapunktow = 0;
         Stopwatch stopwatch = new Stopwatch();
+        public static string wynik = "";
+        
 #if Debug
         int cursX = 0;
         int cursY = 0;
@@ -174,6 +176,8 @@ namespace Gra
                 wszystkieuderzenia = uderzeniachybione + uderzeniacelne;
                 poziomstrachu = uderzeniachybione * 5;
                 liczbapunktow = uderzeniacelne * 100 - uderzeniachybione *2;
+                label3.Text = wynik;
+                wynik = liczbapunktow.ToString();
                 if (poziomstrachu >= 100)
                 {
                     pictureBox1.Visible = true;
@@ -185,6 +189,7 @@ namespace Gra
                     krzyk.SoundLocation = "Krzyk.wav";
                     krzyk.Play();
                     stopwatch.Stop();
+                    button3.Visible = true;
                     
                 }
                 if (uderzeniacelne == 5)
@@ -198,8 +203,9 @@ namespace Gra
                     aplauz.Play();
                     stopwatch.Stop();
                     timer1.Stop();
-                    
+                    button3.Visible = true;
                 }
+                
             }
         }
 
@@ -222,6 +228,12 @@ namespace Gra
             Thread th = new Thread(opennewform);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Wynik wk = new Wynik();
+            wk.Show();
         }
     }
     
