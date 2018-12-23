@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Gra
 {
-    static class Program
+    static class Start
     {
         /// <summary>
         /// Główny punkt wejścia dla aplikacji.

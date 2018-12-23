@@ -17,52 +17,42 @@ namespace Gra
         {
             InitializeComponent();
         }
-
-        private void Poziomy_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        
+        private void ButtonLatwy(object sender, EventArgs e)
         {            
             this.Close();
-            Thread th = new Thread(opennewform);
+            Thread th = new Thread(OpenNewFormLatwy);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
-            
         }
 
-        public void opennewform(object e)
+        public void OpenNewFormLatwy(object e)
         {
-            Application.Run(new Gra());
-
+            Application.Run(new Gra(10,5));
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ButtonSredni(object sender, EventArgs e)
         {
             this.Close();
-            Thread th = new Thread(opennewform2);
+            Thread th = new Thread(OpenNewFormSredni);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
         }
-        public void opennewform2(object e)
+        public void OpenNewFormSredni(object e)
         {
-            Application.Run(new Sredni());
-
+            Application.Run(new Gra(6,4));
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void ButtonTrudny(object sender, EventArgs e)
         {
-
             this.Close();
-            Thread th = new Thread(opennewform3);
+            Thread th = new Thread(OpenNewFormTrudny);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
         }
-        public void opennewform3(object e)
+        public void OpenNewFormTrudny(object e)
         {
-            Application.Run(new Trudny());
-
+            Application.Run(new Gra(4,3));
         }
     }
 }

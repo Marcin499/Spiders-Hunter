@@ -44,7 +44,5 @@ namespace Gra
             }
             disposed = true;
         }
-
-
     }
 }

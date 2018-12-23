@@ -17,17 +17,19 @@ namespace Gra
 {
     public partial class Gra : Form
     {
-        int gameframe = 0;
-        int boomtime = 0;
+        int gameFrame = 0;
+        int boomTime = 0;
         bool uruchomiono = false;
         bool _boom = false;
-        int uderzeniacelne = 0;
-        int uderzeniachybione = 0;
-        int wszystkieuderzenia = 0;
-        int poziomstrachu = 0;
-        int liczbapunktow = 0;
-        Stopwatch stopwatch = new Stopwatch();
+        int uderzeniaCelne = 0;
+        int uderzeniaChybione = 0;
+        int wszystkieUderzenia = 0;
+        int poziomStrachu = 0;
+        int liczbapPunktow = 0;
+        Stopwatch stopWatch = new Stopwatch();
         public static string wynik = "";
+        int zmiennaCzasu = 0;
+        int zmiennaCzasu2 = 0;
         
 #if Debug
         int cursX = 0;
@@ -38,8 +40,10 @@ namespace Gra
         Boom boom;
         Tablica tablica;
         
-        public Gra()
+        public Gra(int a, int b)
         {
+            zmiennaCzasu = a;
+            zmiennaCzasu2 = b;
             InitializeComponent();
             System.Media.SoundPlayer player = new System.Media.SoundPlayer();
             player.SoundLocation = "";
@@ -48,30 +52,24 @@ namespace Gra
             podmenu = new PodMenu() { Left = 900, Top = 0 };
             tablica = new Tablica() { Left = 10, Top = 10 };
             boom = new Boom(); 
+        }       
 
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void TimerTick(object sender, EventArgs e)
         {
-
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (gameframe >= 10)
+            if (gameFrame >= zmiennaCzasu)
             {
                 UpdatePajak();
-                gameframe = 0;
+                gameFrame = 0;
             }
 
-            if (boomtime >=5)
+            if (boomTime >=zmiennaCzasu2)
             {
                 _boom = false;
-                boomtime = 0;
+                boomTime = 0;
                 UpdatePajak();
             }
-            boomtime++;
-            gameframe++;
+            boomTime++;
+            gameFrame++;
             this.Refresh();
         }
 
@@ -83,22 +81,22 @@ namespace Gra
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Graphics gp = e.Graphics;
+            Graphics gf = e.Graphics;
 
             if (_boom == true)
             {
-                boom.DrawImage(gp);
+                boom.DrawImage(gf);
             }
             else
             {
                 if (uruchomiono == true)
                 {
-                    spider.DrawImage(gp);
+                    spider.DrawImage(gf);
                 }
             }
             
-            podmenu.DrawImage(gp);
-            tablica.DrawImage(gp);
+            podmenu.DrawImage(gf);
+            tablica.DrawImage(gf);
 
 
 #if Debug
@@ -109,26 +107,25 @@ namespace Gra
             TextFormatFlags flags = TextFormatFlags.Left;
             Font font = new Font("Arial", 14, FontStyle.Regular);
             Font font1 = new Font("Arial", 14, FontStyle.Bold);
-            TextRenderer.DrawText(e.Graphics, "Uderzenia: " + wszystkieuderzenia.ToString(), font, new Rectangle(30, 32, 120, 20), SystemColors.ControlText, flags);
-            TextRenderer.DrawText(e.Graphics, "Uderzenia celne: " + uderzeniacelne.ToString(), font, new Rectangle(30, 52, 200, 20), SystemColors.ControlText, flags);
-            TextRenderer.DrawText(e.Graphics, "Uderzenia chybione: " + uderzeniachybione.ToString(), font, new Rectangle(30, 72, 220, 20), SystemColors.ControlText, flags);
-            TextRenderer.DrawText(e.Graphics, "Poziom strachu: " + poziomstrachu.ToString()+ "%", font1, new Rectangle(30, 117, 220, 20), SystemColors.ControlText, flags);            
-            TextRenderer.DrawText(e.Graphics, "Czas gry: " + stopwatch.Elapsed.ToString(), font, new Rectangle(30, 92, 165, 25), SystemColors.ControlText, flags);
-            TextRenderer.DrawText(e.Graphics, "Liczba punktów: " + liczbapunktow.ToString(), font, new Rectangle(30, 137, 220, 25), SystemColors.ControlText, flags);
+            TextRenderer.DrawText(e.Graphics, "Uderzenia: " + wszystkieUderzenia.ToString(), font, new Rectangle(30, 32, 120, 20), SystemColors.ControlText, flags);
+            TextRenderer.DrawText(e.Graphics, "Uderzenia celne: " + uderzeniaCelne.ToString(), font, new Rectangle(30, 52, 200, 20), SystemColors.ControlText, flags);
+            TextRenderer.DrawText(e.Graphics, "Uderzenia chybione: " + uderzeniaChybione.ToString(), font, new Rectangle(30, 72, 220, 20), SystemColors.ControlText, flags);
+            TextRenderer.DrawText(e.Graphics, "Poziom strachu: " + poziomStrachu.ToString()+ "%", font1, new Rectangle(30, 117, 220, 20), SystemColors.ControlText, flags);            
+            TextRenderer.DrawText(e.Graphics, "Czas gry: " + stopWatch.Elapsed.ToString(), font, new Rectangle(30, 92, 165, 25), SystemColors.ControlText, flags);
+            TextRenderer.DrawText(e.Graphics, "Liczba punktów: " + liczbapPunktow.ToString(), font, new Rectangle(30, 137, 220, 25), SystemColors.ControlText, flags);
             base.OnPaint(e);
         }
 
-        private void Gra_MouseMove(object sender, MouseEventArgs e)
+        private void GraMouseMove(object sender, MouseEventArgs e)
         {
 #if Debug
             cursX = e.X;
             cursY = e.Y;
 #endif
             this.Refresh();
-
         }
 
-        private void Gra_MouseClick(object sender, MouseEventArgs e)
+        private void GraMouseClick(object sender, MouseEventArgs e)
         {
             System.Media.SoundPlayer slap = new System.Media.SoundPlayer();
             slap.SoundLocation = "Slap.wav";
@@ -139,23 +136,23 @@ namespace Gra
                 uruchomiono = true;
                 timer1.Start();
                 slap.Stop();
-                stopwatch.Start();
+                stopWatch.Start();
                 
             }
             else if (e.X > 923 && e.X < 1182 && e.Y > 140 && e.Y < 194)
             {
                 timer1.Stop();
                 slap.Stop();
-                stopwatch.Stop();
+                stopWatch.Stop();
 
             }
             else if (e.X > 923 && e.X < 1182 && e.Y > 194 && e.Y < 249)
             {
                 spider = new Pajak() { Left = 10, Top = 200 };
                 timer1.Stop();                
-                uderzeniacelne = 0;
-                uderzeniachybione = 0;
-                wszystkieuderzenia = 0;
+                uderzeniaCelne = 0;
+                uderzeniaChybione = 0;
+                wszystkieUderzenia = 0;
                 slap.Stop();
             }
             else
@@ -169,16 +166,16 @@ namespace Gra
                     slap.Stop();
                     bitch.SoundLocation = "Got ya bitch.wav";                    
                     bitch.Play();
-                    uderzeniacelne++;
-                    
+                    uderzeniaCelne++;                    
                 }
-                uderzeniachybione++;
-                wszystkieuderzenia = uderzeniachybione + uderzeniacelne;
-                poziomstrachu = uderzeniachybione * 5;
-                liczbapunktow = uderzeniacelne * 100 - uderzeniachybione *2;
+                uderzeniaChybione++;
+                wszystkieUderzenia = uderzeniaChybione + uderzeniaCelne;
+                poziomStrachu = uderzeniaChybione * 5;
+                liczbapPunktow = uderzeniaCelne * 100 - uderzeniaChybione *2;
                 label3.Text = wynik;
-                wynik = liczbapunktow.ToString();
-                if (poziomstrachu >= 100)
+                wynik = liczbapPunktow.ToString();
+
+                if (poziomStrachu >= 100)
                 {
                     pictureBox1.Visible = true;
                     timer1.Stop();
@@ -188,11 +185,11 @@ namespace Gra
                     System.Media.SoundPlayer krzyk = new System.Media.SoundPlayer();
                     krzyk.SoundLocation = "Krzyk.wav";
                     krzyk.Play();
-                    stopwatch.Stop();
+                    stopWatch.Stop();
                     button3.Visible = true;
-                    
                 }
-                if (uderzeniacelne == 5)
+
+                if (uderzeniaCelne == 5)
                 {
                     pictureBox2.Visible = true;
                     label2.Visible = true;
@@ -201,40 +198,37 @@ namespace Gra
                     System.Media.SoundPlayer aplauz = new System.Media.SoundPlayer();
                     aplauz.SoundLocation = "Aplauz.wav";
                     aplauz.Play();
-                    stopwatch.Stop();
+                    stopWatch.Stop();
                     timer1.Stop();
                     button3.Visible = true;
-                }
-                
+                }                
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ButtonWyjdzdoMenu(object sender, EventArgs e)
         {
             this.Close();
-            Thread th = new Thread(opennewform);
+            Thread th = new Thread(WyjdzDoMenu);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
         }
-        public void opennewform(object obj)
+        public void WyjdzDoMenu(object obj)
         {
             Application.Run(new Menu());
-
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void ButtonWroc(object sender, EventArgs e)
         {
             this.Close();
-            Thread th = new Thread(opennewform);
+            Thread th = new Thread(WyjdzDoMenu);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Wyniki(object sender, EventArgs e)
         {
             Wynik wk = new Wynik();
             wk.Show();
         }
-    }
-    
+    }    
 }

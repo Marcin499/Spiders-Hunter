@@ -45,7 +45,7 @@
             // 
             // timer1
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Tick += new System.EventHandler(this.TimerTick);
             // 
             // pictureBox1
             // 
@@ -80,7 +80,7 @@
             this.button1.Text = "Wyjdź do menu";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.ButtonWyjdzdoMenu);
             // 
             // pictureBox2
             // 
@@ -113,7 +113,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "Wróć";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.ButtonWroc);
             // 
             // button3
             // 
@@ -125,7 +125,7 @@
             this.button3.Text = "Zapisz wynik";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.Wyniki);
             // 
             // label3
             // 
@@ -154,10 +154,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Gra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Poziom Łatwy";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Gra_MouseClick);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Gra_MouseMove);
+            this.Text = "Poziom Łatwy";            
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GraMouseClick);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.GraMouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

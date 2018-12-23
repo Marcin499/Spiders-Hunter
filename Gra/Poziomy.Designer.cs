@@ -51,7 +51,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Łatwy";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.ButtonLatwy);
             // 
             // button1
             // 
@@ -65,7 +65,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "Średni";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.ButtonSredni);
             // 
             // button3
             // 
@@ -79,7 +79,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "Trudny";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.ButtonTrudny);
             // 
             // label1
             // 
@@ -126,8 +126,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Poziomy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Poziomy trudności";
-            this.Load += new System.EventHandler(this.Poziomy_Load);
+            this.Text = "Poziomy trudności";            
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
